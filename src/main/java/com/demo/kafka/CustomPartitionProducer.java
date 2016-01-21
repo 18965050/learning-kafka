@@ -15,7 +15,7 @@ public class CustomPartitionProducer {
 	public CustomPartitionProducer() {
 		Properties props = new Properties();
 		// Set the broker list for requesting metadata to find the lead broker
-		props.put("metadata.broker.list", "test-213:9093,test-213:9094");
+		props.put("metadata.broker.list", "server26:9092");
 		// This specifies the serializer class for keys
 		props.put("serializer.class", "kafka.serializer.StringEncoder");
 		// Defines the class to be used for determining the partition

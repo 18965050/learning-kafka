@@ -12,7 +12,8 @@ public class SimpleProducer {
 	private final Properties					props	= new Properties();
 
 	public SimpleProducer() {
-		props.put("metadata.broker.list", "test-213:9093,test-213:9094");
+		//注意:broker配置文件server.properties中配置项advertised.host.name需要配置
+		props.put("metadata.broker.list", "server26:9092");
 		// props.put("metadata.broker.list", "test-213:9093, test-213:9094");
 		props.put("serializer.class", "kafka.serializer.StringEncoder");
 		props.put("request.required.acks", "1");
