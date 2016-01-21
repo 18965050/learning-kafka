@@ -56,7 +56,7 @@ public class CustomPartitionProducer {
 		// command line
 		// String topic = args[0];
 		// String count = args[1];
-		String topic = "partitiontopic";
+		String topic = "partitiontopic1";
 		String count = "100";
 		int messageCount = Integer.parseInt(count);
 		System.out.println("Topic Name - " + topic);

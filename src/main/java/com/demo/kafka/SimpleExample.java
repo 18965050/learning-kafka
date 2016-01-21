@@ -27,14 +27,14 @@ public class SimpleExample {
 		// long maxReads = Long.parseLong(args[0]);
 		long maxReads = 10L;
 		// String topic = args[1];
-		String topic = "mytopic";
+		String topic = "partitiontopic";
 		// int partition = Integer.parseInt(args[2]);
 		int partition = 2;
 		List<String> seeds = new ArrayList<String>();
 		// seeds.add(args[3]);
-		seeds.add("test-213");
+		seeds.add("server26");
 		// int port = Integer.parseInt(args[4]);
-		int port = 9093;
+		int port = 9092;
 		try {
 			example.run(maxReads, topic, partition, seeds, port);
 		} catch (Exception e) {

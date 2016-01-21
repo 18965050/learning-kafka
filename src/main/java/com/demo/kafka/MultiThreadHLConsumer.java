@@ -43,6 +43,9 @@ public class MultiThreadHLConsumer {
 		executor = Executors.newFixedThreadPool(threadCount);
 		// Creating an object messages consumption
 		int count = 0;
+		/**
+		 * 一个线程对应于一个topic分区
+		 */
 		for (final KafkaStream<byte[], byte[]> stream : streams) {
 			final int threadNumber = count;
 			executor.submit(new Runnable() {
@@ -70,9 +73,9 @@ public class MultiThreadHLConsumer {
 	}
 
 	public static void main(String[] args) {
-		String topic = "partitiontopic";
-		int threadCount = 3;
-		MultiThreadHLConsumer simpleHLConsumer = new MultiThreadHLConsumer("test-213:2181", "testgroup", topic);
+		String topic = "partitiontopic1";
+		int threadCount = 5;
+		MultiThreadHLConsumer simpleHLConsumer = new MultiThreadHLConsumer("server26:2181", "testgroup", topic);
 		simpleHLConsumer.testConsumer(threadCount);
 
 		try {

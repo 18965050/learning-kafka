@@ -11,6 +11,11 @@ import kafka.consumer.ConsumerIterator;
 import kafka.consumer.KafkaStream;
 import kafka.javaapi.consumer.ConsumerConnector;
 
+/**
+ * 这种方式不是从  from-begining开始?
+ * @author lvchenggang
+ *
+ */
 public class SimpleHLConsumer {
 
     private final ConsumerConnector consumer;
@@ -24,10 +29,12 @@ public class SimpleHLConsumer {
         props.put("zookeeper.session.timeout.ms", "500");
         props.put("zookeeper.sync.time.ms", "250");
         props.put("auto.commit.interval.ms", "1000");
+        //props.put("autooffset.reset", "smallest");
         consumer = Consumer.createJavaConsumerConnector(new ConsumerConfig(props));
         this.topic = topic;
     }
 
+    
     public void testConsumer() {
         Map<String, Integer> topicCount = new HashMap<String, Integer>();
         // Define single thread for topic
@@ -47,8 +54,9 @@ public class SimpleHLConsumer {
     }
 
     public static void main(String[] args) {
-        String topic = "website-hits";
-        SimpleHLConsumer simpleHLConsumer = new SimpleHLConsumer("test-213:2181", "testgroup", topic);
+        //String topic = "website-hits";
+    	String topic = "partitiontopic";
+        SimpleHLConsumer simpleHLConsumer = new SimpleHLConsumer("server26:2181", "testgroup", topic);
         simpleHLConsumer.testConsumer();
     }
 }
